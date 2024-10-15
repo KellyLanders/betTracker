@@ -1,0 +1,25 @@
+<div class="new-bet-wrapper">
+    <form [formGroup]="newBetForm" (ngSubmit)="createBet()">
+        <div>
+            <label for="initiator"></label>
+            <input id="initiator" type="text" placeholder="Who's Betting?" formControlName="initiator">
+        </div>
+
+        <div>
+            <label for="opponent"></label>
+            <input id="opponent" type="text" placeholder="Against Whom?" formControlName="opponent">
+        </div>
+
+        <div>
+            <label for="amount"></label>
+            <input id="amount" type="text" placeholder="For How Much?" formControlName="amount">
+        </div>
+
+        <div>
+            <label for="bet"></label>
+            <input id="bet" type="text" placeholder="What Is The Bet?" formControlName="bet">
+        </div>
+
+        <button type="submit">Create Bet</button>
+    </form>
+</div>

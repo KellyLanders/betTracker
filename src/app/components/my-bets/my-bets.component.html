@@ -1,0 +1,21 @@
+<h1>My Bets</h1>
+
+<div class="bet-wrapper">
+    <div *ngIf="bets?.length === null">
+        <h2>No active bets.</h2>
+        <h3>Quit being lame, and go bet somebody something. Then come back.</h3>
+    </div>
+
+    <div *ngIf="bets?.length !== null">
+        <mat-card appearance="outlined" *ngFor="let bet of bets">
+            <mat-card-header>
+                <mat-card-title>Bet Details</mat-card-title>
+            </mat-card-header>
+            
+                <p>Bet between {{ bet.initiator }} and {{ bet.opponent }}</p>
+                <p>For -- {{ bet.amount }}</p>
+                <p>The bet is that -- {{ bet.bet }}</p>
+            
+        </mat-card>
+    </div>
+</div>
