@@ -20,7 +20,22 @@ export class MyBetsComponent implements OnInit{
   ngOnInit(): void {
     this.sharedDataService.data$.subscribe(
       (data:any) => {
-        this.bets = data;
+        // this.bets = data;
+
+        this.bets = [
+          {
+            initiator: "Larry",
+            opponent: "Jason",
+            amount: "500",
+            bet: "That a reunion happens"
+          },
+          {
+            initiator: "Peyton",
+            opponent: "TB12",
+            amount: "$1",
+            bet: "Denver wins the SB in 5 years at the most"
+          }
+        ]
       }
     )
   }
