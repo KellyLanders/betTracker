@@ -12,3 +12,9 @@
         background-color: lightgreen;
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 900px){
+    .main-menu {
+        justify-content: space-evenly;
+    }
+}

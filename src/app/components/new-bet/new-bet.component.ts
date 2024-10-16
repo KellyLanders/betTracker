@@ -3,13 +3,17 @@ import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedDataService } from '../../services/shared-data/shared-data.service';
 import { BetCreationService } from '../../services/bet-creation/bet-creation.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 @Component({
   selector: 'app-new-bet',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './new-bet.component.html',
   styleUrl: './new-bet.component.scss'
 })
