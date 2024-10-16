@@ -1,7 +1,8 @@
 import { formatNumber } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SharedDataService } from '../../services/shared-data.service';
+import { SharedDataService } from '../../services/shared-data/shared-data.service';
+import { BetCreationService } from '../../services/bet-creation/bet-creation.service';
 
 
 
@@ -14,7 +15,10 @@ import { SharedDataService } from '../../services/shared-data.service';
 })
 export class NewBetComponent {
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor(
+    private sharedDataService: SharedDataService,
+    private betCreationService: BetCreationService
+  ) {}
   
   newBetForm: FormGroup<any> = new FormGroup({
     initiator: new FormControl('', Validators.required),
@@ -29,7 +33,11 @@ export class NewBetComponent {
     //you may have to massage or clean up the object, but thats the gist.
     console.log(this.newBetForm.value);
 
-    this.sharedDataService.sendData(this.newBetForm.value);
+    this.betCreationService.createBet(this.newBetForm.value).subscribe(
+      (response) => {
+        this.sharedDataService.sendData(response);
+      }
+    )
   }
 
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedDataService } from '../../services/shared-data.service';
+import { SharedDataService } from '../../services/shared-data/shared-data.service';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { Bet } from '../../models/Bet';
 
 @Component({
   selector: 'app-my-bets',
@@ -14,23 +15,12 @@ export class MyBetsComponent implements OnInit{
 
   constructor(private sharedDataService: SharedDataService) {}
 
-  bets: any[] = [];
+  bets: Bet[] = [];
 
   ngOnInit(): void {
     this.sharedDataService.data$.subscribe(
-      (data) => {
-        console.log(data, 'from my bets');
-        //uncomment this once you start getting the backend hooked-up
-        // this.bets = data;
-
-        this.bets = [
-          {
-            initiator : "Larry",
-            opponent: "Jeff",
-            amount: "$10,000",
-            bet: "President"
-          }
-        ]
+      (data:any) => {
+        this.bets = data;
       }
     )
   }

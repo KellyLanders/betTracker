@@ -7,14 +7,14 @@
     </div>
 
     <div *ngIf="bets?.length !== null">
-        <mat-card appearance="outlined" *ngFor="let bet of bets">
+        <mat-card appearance="outlined" *ngFor="let bet of bets" [class.mat-elevation-z2]="true" [class.mat-elevation-z8]="true">
             <mat-card-header>
                 <mat-card-title>Bet Details</mat-card-title>
             </mat-card-header>
             
                 <p>Bet between {{ bet.initiator }} and {{ bet.opponent }}</p>
-                <p>For -- {{ bet.amount }}</p>
-                <p>The bet is that -- {{ bet.bet }}</p>
+                <p>For {{ bet.amount }}</p>
+                <p>The bet- {{ bet.bet }}</p>
             
         </mat-card>
     </div>
